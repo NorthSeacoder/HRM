@@ -31,99 +31,99 @@ import Layout from '@/layout'
  * all roles can be accessed
  */
 export const constantRoutes = [{
-  path: '/login',
-  component: () => import('@/views/login/index'),
-  hidden: true
-},
-
-{
-  path: '/404',
-  component: () => import('@/views/404'),
-  hidden: true
-},
-
-{
-  path: '/',
-  component: Layout,
-  redirect: '/dashboard',
-  children: [{
-    path: 'dashboard',
-    name: '首页',
-    component: () => import('@/views/dashboard/index'),
-    meta: {
-      title: '首页',
-      icon: 'dashboard'
-    }
-  }]
-},
-
-{
-  path: '/example',
-  component: Layout,
-  redirect: '/example/table',
-  name: '人事管理',
-  meta: {
-    title: '人事管理',
-    icon: 'example'
+    path: '/login',
+    component: () => import('@/views/login/index'),
+    hidden: true
   },
-  children: [{
-    path: 'table',
-    name: '员工信息',
-    component: () => import('@/views/table/index'),
-    meta: {
-      title: '员工信息',
-      icon: 'table'
-    }
-  },
+
   {
-    path: 'table1',
-    name: '招聘端口管理',
-    component: () => import('@/views/table/index'),
-    meta: {
-      title: '招聘端口管理',
-      icon: 'table'
-    }
+    path: '/404',
+    component: () => import('@/views/404'),
+    hidden: true
   },
+
   {
-    path: 'table2',
-    name: '考勤管理',
-    component: () => import('@/views/table/index'),
+    path: '/',
+    component: Layout,
+    redirect: '/dashboard',
+    children: [{
+      path: 'dashboard',
+      name: '首页',
+      component: () => import('@/views/dashboard/index'),
+      meta: {
+        title: '首页',
+        icon: 'dashboard'
+      }
+    }]
+  },
+
+  {
+    path: '/personnelManagement',
+    component: Layout,
+    redirect: '/personnelManagement/employeeInfo',
+    name: '人事管理',
     meta: {
-      title: '考勤管理',
-      icon: 'table'
-    }
+      title: '人事管理',
+      icon: 'example'
+    },
+    children: [{
+        path: 'employeeInfo',
+        name: '员工信息',
+        component: () => import('@/views/personnelManagement/employeeInfo'),
+        meta: {
+          title: '员工信息',
+          icon: 'table'
+        }
+      },
+      {
+        path: 'table1',
+        name: '招聘端口管理',
+        component: () => import('@/views/table/index'),
+        meta: {
+          title: '招聘端口管理',
+          icon: 'table'
+        }
+      },
+      {
+        path: 'table2',
+        name: '考勤管理',
+        component: () => import('@/views/table/index'),
+        meta: {
+          title: '考勤管理',
+          icon: 'table'
+        }
+      }
+      // {
+      //   path: 'tree',
+      //   name: 'Tree',
+      //   component: () => import('@/views/tree/index'),
+      //   meta: {
+      //     title: 'Tree',
+      //     icon: 'tree'
+      //   }
+      // }
+    ]
+  },
+
+  // {
+  //   path: '/form',
+  //   component: Layout,
+  //   children: [{
+  //     path: 'index',
+  //     name: 'Form',
+  //     component: () => import('@/views/form/index'),
+  //     meta: {
+  //       title: 'Form',
+  //       icon: 'form'
+  //     }
+  //   }]
+  // },
+  // 404 page must be placed at the end !!!
+  {
+    path: '*',
+    redirect: '/404',
+    hidden: true
   }
-    // {
-    //   path: 'tree',
-    //   name: 'Tree',
-    //   component: () => import('@/views/tree/index'),
-    //   meta: {
-    //     title: 'Tree',
-    //     icon: 'tree'
-    //   }
-    // }
-  ]
-},
-
-// {
-//   path: '/form',
-//   component: Layout,
-//   children: [{
-//     path: 'index',
-//     name: 'Form',
-//     component: () => import('@/views/form/index'),
-//     meta: {
-//       title: 'Form',
-//       icon: 'form'
-//     }
-//   }]
-// },
-// 404 page must be placed at the end !!!
-{
-  path: '*',
-  redirect: '/404',
-  hidden: true
-}
 ]
 
 const createRouter = () => new Router({

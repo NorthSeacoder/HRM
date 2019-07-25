@@ -4,7 +4,6 @@ const data = Mock.mock({
   'items|30': [{
     name: 'name', // 姓名
     'status|1': ['trail', 'leave', 'regular'], // 状态:试用,离职,正式
-
     title: '@sentence(10, 20)',
     author: 'name',
     display_time: '@datetime',
