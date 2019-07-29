@@ -76,6 +76,15 @@ export const constantRoutes = [{
         }
       },
       {
+        path: 'calendar',
+        name: '日历',
+        component: () => import('@/views/personnelManagement/calendar'),
+        meta: {
+          title: '日历',
+          icon: 'table'
+        }
+      },
+      {
         path: 'table1',
         name: '招聘端口管理',
         component: () => import('@/views/table/index'),
